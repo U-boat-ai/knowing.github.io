@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="测试工具 JMeter  PerfMon 插件 – 监控服务器信息，如：CPU 内存 网络等  ServerAgent-2.2.3 – 配合 PerfMon 插件  性能测试报告模板   主要参数设置主界面  Jmeter 的组成：Jmeter 的组成是由一个大的测试计划，下面是一个线程组(即测试场景),线程组又包含Sampler，断言，定时器，监听器，配置元件，后置处理器，前置处理器，逻辑控制器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次性能测试">
+<meta property="og:url" content="http://knowing.pub/2019/07/12/记一次性能测试/index.html">
+<meta property="og:site_name" content="良序">
+<meta property="og:description" content="测试工具 JMeter  PerfMon 插件 – 监控服务器信息，如：CPU 内存 网络等  ServerAgent-2.2.3 – 配合 PerfMon 插件  性能测试报告模板   主要参数设置主界面  Jmeter 的组成：Jmeter 的组成是由一个大的测试计划，下面是一个线程组(即测试场景),线程组又包含Sampler，断言，定时器，监听器，配置元件，后置处理器，前置处理器，逻辑控制器">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/17d455064947866a87ec0f55b5a40907.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/a0e647bf936ccd4e9ef6d0594e239662.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/55a79224d5fa238cf7b810fd1fc58576.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/295122fee6f0d50747fcefa78c4a8dbd.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/d9ead8c7f8881d5edf9e88642d3f7c55.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/00459de12ce9e68b2d2eed4f004d87f2.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/8eee53c90cb2772a3d77a5a1d357e690.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/e98f7d157e7acd87be392dfb9a8e2064.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/a6770c7c68091ca37c3a0ced89c09e24.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/aa95830c505b021341d52083e7edf929.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/6be3245f7334970170850ea5b5ee7eb5.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/4a82e189469fa3cabbfb3591381b578e.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/7800cf3c117a2e74e9984a7adc5f7e1a.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/5d1e79ef54b1db46de2a54fcbc237e34.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/ad384476ebd9179bc7c9516fb96d9157.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/36eed757e07ec42bc19fc52f4346329e.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/da8b8269db7f483824b99e3c4cecdc57.jpg">
+<meta property="og:updated_time" content="2019-07-12T11:05:17.308Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记一次性能测试">
+<meta name="twitter:description" content="测试工具 JMeter  PerfMon 插件 – 监控服务器信息，如：CPU 内存 网络等  ServerAgent-2.2.3 – 配合 PerfMon 插件  性能测试报告模板   主要参数设置主界面  Jmeter 的组成：Jmeter 的组成是由一个大的测试计划，下面是一个线程组(即测试场景),线程组又包含Sampler，断言，定时器，监听器，配置元件，后置处理器，前置处理器，逻辑控制器">
+<meta name="twitter:image" content="http://knowing.pub/2019/07/12/记一次性能测试/media/17d455064947866a87ec0f55b5a40907.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://knowing.pub/2019/07/12/记一次性能测试/">
+
+
+
+
+
+  <title>记一次性能测试 | 良序</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">良序</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://knowing.pub/2019/07/12/记一次性能测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="良序">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">记一次性能测试</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-12T19:04:12+08:00">
+                2019-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h3><ul>
+<li><p>JMeter</p>
+</li>
+<li><p>PerfMon 插件 – 监控服务器信息，如：CPU 内存 网络等</p>
+</li>
+<li><p>ServerAgent-2.2.3 – 配合 PerfMon 插件</p>
+</li>
+<li><p>性能测试报告模板</p>
+</li>
+</ul>
+<h3 id="主要参数设置"><a href="#主要参数设置" class="headerlink" title="主要参数设置"></a>主要参数设置</h3><p>主界面</p>
+<p><img src="media/17d455064947866a87ec0f55b5a40907.jpg" alt="主要参数"></p>
+<h4 id="Jmeter-的组成："><a href="#Jmeter-的组成：" class="headerlink" title="Jmeter 的组成："></a>Jmeter 的组成：</h4><p>Jmeter 的组成是由一个大的<strong>测试计划</strong>，下面是一个<strong>线程组</strong>(即测试场景),<br><strong>线程组</strong>又包含<em>Sampler<em>，</em>断言<em>，</em>定时器<em>，</em>监听器<em>，</em>配置元件<em>，</em>后置处理器<em>，</em>前置处理器<em>，</em>逻辑控制器</em><br>的这样一个结构。</p>
+<p>所以整个的配置参数都是基于<strong>线程组</strong>创建的。</p>
+<a id="more"></a>
+<h4 id="线程组设置"><a href="#线程组设置" class="headerlink" title="线程组设置"></a>线程组设置</h4><p><img src="media/a0e647bf936ccd4e9ef6d0594e239662.jpg" alt></p>
+<h4 id="HTTP-请求默认值"><a href="#HTTP-请求默认值" class="headerlink" title="HTTP 请求默认值"></a>HTTP 请求默认值</h4><p>这里进行设置后， 采样器中的 <strong>HTTP 请求</strong>中就不用设置</p>
+<p><img src="media/55a79224d5fa238cf7b810fd1fc58576.jpg" alt></p>
+<h4 id="设置思考时间"><a href="#设置思考时间" class="headerlink" title="设置思考时间"></a>设置思考时间</h4><p>设置思考时间是为了模拟用户实际操作时的等待间隔时间</p>
+<p><img src="media/295122fee6f0d50747fcefa78c4a8dbd.jpg" alt></p>
+<blockquote>
+<p>  <a href="https://www.blazemeter.com/blog/comprehensive-guide-using-jmeter-timers" target="_blank" rel="noopener">参考文档</a></p>
+</blockquote>
+<h4 id="HTTP-请求设置"><a href="#HTTP-请求设置" class="headerlink" title="HTTP 请求设置"></a>HTTP 请求设置</h4><p><img src="media/d9ead8c7f8881d5edf9e88642d3f7c55.jpg" alt></p>
+<h4 id="PerfMon-设置"><a href="#PerfMon-设置" class="headerlink" title="PerfMon 设置"></a>PerfMon 设置</h4><p>PerfMon 是用来监控服务器信息，它工作需要启动 <strong>ServerAgent</strong>, 默认端口号<br>4444，<strong>ServerAgent</strong> 也是依赖 Java 环境的。</p>
+<p><img src="media/00459de12ce9e68b2d2eed4f004d87f2.jpg" alt></p>
+<h3 id="性能测试中主要关注的点"><a href="#性能测试中主要关注的点" class="headerlink" title="性能测试中主要关注的点"></a>性能测试中主要关注的点</h3><p>我先概况下，主要关注的地方为：</p>
+<ul>
+<li><p>聚合报告</p>
+</li>
+<li><p>jp@gc - PerfMon Metrics Collector （服务器信息）</p>
+</li>
+<li><p>程序日志</p>
+</li>
+<li><p>SQLServer数据库</p>
+</li>
+<li><p>IIS 中该应用的工作进程</p>
+</li>
+<li><p>网络连接数</p>
+</li>
+</ul>
+<h4 id="聚合报告"><a href="#聚合报告" class="headerlink" title="聚合报告"></a>聚合报告</h4><p>首先看的就是聚合报告，在启动测试计划时就要通过聚合报告看线程有没有堵塞卡顿的情况（所有线程是不是都在跑）</p>
+<p>聚合报告中主要关注<strong>平均响应时间</strong>、<strong>最大响应时间</strong>（单位：毫秒）以及<br><strong>Error</strong>，如果出现 <strong>Error</strong><br>也就没多大意义了，可停止测试，通过开启<strong>察看结果树</strong>和日志排查是服务器问题还是程序问题。我所遇到的服务器问题有：</p>
+<ul>
+<li><p>并发量太多，端口不够。设置 TCP/IP 端口可用值</p>
+</li>
+<li><p>IIS 服务器队列长度不够。设置 IIS 中服务器队列长度</p>
+</li>
+</ul>
+<p><img src="media/8eee53c90cb2772a3d77a5a1d357e690.jpg" alt></p>
+<h4 id="服务器信息"><a href="#服务器信息" class="headerlink" title="服务器信息"></a>服务器信息</h4><p>CPU、内存在整个测试过程中的负荷，有没有持续飙高</p>
+<p>网络有没有长时间等待处理的网络包</p>
+<h4 id="程序日志"><a href="#程序日志" class="headerlink" title="程序日志"></a>程序日志</h4><p>请求返回是否都正常。</p>
+<p>也可以通过日志查看线程有没有堵塞卡顿（请求和返回是一条一条过来的，还是一大段请求一大段返回）</p>
+<h4 id="SQLServer-数据库"><a href="#SQLServer-数据库" class="headerlink" title="SQLServer 数据库"></a>SQLServer 数据库</h4><p>对于平均响应时间、最大响应时间过长的，通过数据库监控，排查是否为 sql 性能问题</p>
+<ol>
+<li>通过 SQL Server Profiler 工具抓取相关 sql，查看耗时时长</li>
+</ol>
+<p>选择事件</p>
+<p><img src="media/e98f7d157e7acd87be392dfb9a8e2064.jpg" alt></p>
+<p>设置筛选器，点击确定。当然，其他的参数也可以进行筛选</p>
+<p><img src="media/a6770c7c68091ca37c3a0ced89c09e24.jpg" alt></p>
+<p>这里主要看 Duration 字段值</p>
+<p><img src="media/aa95830c505b021341d52083e7edf929.jpg" alt></p>
+<p>这里说下这几个字段的含义，从左到右分别是：</p>
+<ul>
+<li>事件分类，sql 语句，应用程序名称，操作系统用户，数据库用户，cpu</li>
+<li>占用率，读数据库次数，写数据库次数，执行脚本用时，应用程序进程号，开始时间，结束时间</li>
+</ul>
+<ol start="2">
+<li>通过活动监视器查看 右击服务器，选择 活动和监视器</li>
+</ol>
+<p><img src="media/6be3245f7334970170850ea5b5ee7eb5.jpg" alt></p>
+<p>主要看平均持续时间</p>
+<p><img src="media/4a82e189469fa3cabbfb3591381b578e.jpg" alt></p>
+<p>找到执行时间较长的 sql，可使用执行计划分析该 sql 具体耗时的地方</p>
+<p><img src="media/7800cf3c117a2e74e9984a7adc5f7e1a.jpg" alt></p>
+<h4 id="IIS-工作进程"><a href="#IIS-工作进程" class="headerlink" title="IIS 工作进程"></a>IIS 工作进程</h4><p>通过 IIS 工作进程，排查是否有 IIS 导致的性能问题</p>
+<p>打开IIS ，双击 工作进程</p>
+<p><img src="media/5d1e79ef54b1db46de2a54fcbc237e34.jpg" alt></p>
+<p>双击该进程</p>
+<p><img src="media/ad384476ebd9179bc7c9516fb96d9157.jpg" alt></p>
+<p>查看<strong>经过的时间</strong></p>
+<p><img src="media/36eed757e07ec42bc19fc52f4346329e.jpg" alt></p>
+<h4 id="网络连接数"><a href="#网络连接数" class="headerlink" title="网络连接数"></a>网络连接数</h4><p>连接数的增多意味着对系统内存资源的消耗越多，一方面也体现了防火墙一定的能力</p>
+<p>可通过 <code>netstat -an | find &quot;端口&quot;</code></p>
+<p>也可通过性能监视器中，计数器中的 <code>Current Connections</code> 查看</p>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li><p>测试准备时，对数据量的大小也要进行一个统计。数据量对性能有很大的影响</p>
+</li>
+<li><p>正式测试时，将<strong>察看结果树</strong>禁用，避免性能损耗</p>
+</li>
+<li><p>在测试时，避免进行其他操作</p>
+</li>
+<li><p>一轮并发量跑完之后，记得清空监听器中的记录，以准备下一轮的并发量测试</p>
+</li>
+</ul>
+<p><img src="media/da8b8269db7f483824b99e3c4cecdc57.jpg" alt></p>
+<h3 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋"></a>彩蛋</h3><p>tempdb 即临时数据库，增加适当数据文件，可用于分担数据库执行、查询等的负担</p>
+<p>IIS 遇到资源加载瓶颈，可在应用池增加该应用的工作进程数，但可能存在一定的负面效果。一个比较好的设想是使用两台服务器的方式进行分担。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/02/mysql 基础操作/" rel="next" title="Mysql 基础操作">
+                <i class="fa fa-chevron-left"></i> Mysql 基础操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt>
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试工具"><span class="nav-number">1.</span> <span class="nav-text">测试工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要参数设置"><span class="nav-number">2.</span> <span class="nav-text">主要参数设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Jmeter-的组成："><span class="nav-number">2.1.</span> <span class="nav-text">Jmeter 的组成：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程组设置"><span class="nav-number">2.2.</span> <span class="nav-text">线程组设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-请求默认值"><span class="nav-number">2.3.</span> <span class="nav-text">HTTP 请求默认值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置思考时间"><span class="nav-number">2.4.</span> <span class="nav-text">设置思考时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-请求设置"><span class="nav-number">2.5.</span> <span class="nav-text">HTTP 请求设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PerfMon-设置"><span class="nav-number">2.6.</span> <span class="nav-text">PerfMon 设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能测试中主要关注的点"><span class="nav-number">3.</span> <span class="nav-text">性能测试中主要关注的点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合报告"><span class="nav-number">3.1.</span> <span class="nav-text">聚合报告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器信息"><span class="nav-number">3.2.</span> <span class="nav-text">服务器信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序日志"><span class="nav-number">3.3.</span> <span class="nav-text">程序日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQLServer-数据库"><span class="nav-number">3.4.</span> <span class="nav-text">SQLServer 数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IIS-工作进程"><span class="nav-number">3.5.</span> <span class="nav-text">IIS 工作进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络连接数"><span class="nav-number">3.6.</span> <span class="nav-text">网络连接数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意点"><span class="nav-number">4.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#彩蛋"><span class="nav-number">5.</span> <span class="nav-text">彩蛋</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
