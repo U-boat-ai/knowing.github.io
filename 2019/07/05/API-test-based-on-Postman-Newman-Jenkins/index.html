@@ -79,32 +79,29 @@
 
 
 
-<meta name="description" content="JDK 安装与配置 下载地址  JDK安装: 下一步即可！  环境变量的配置a. 计算机 -&amp;gt; 系统属性 -&amp;gt; 高级系统设置 -&amp;gt; 环境变量 -&amp;gt; 系统变量   b. 新建 JAVA_HOME">
+<meta name="description" content="Postman安装略过，直接上手。 新建 CollectionCollection 主要用于将一个模块的接口保存在一起，后续可集中导出执行测试   将一些通用的测试用例写进 Collection 的 Pre-request 和 Test 脚本中，这样可以不用在每个请求中写一遍相应测试用例。因为我们接口进行了加密，我这里就将一些接口解密、返回代码、状态码等写在下面。  捕获 HTTP 请求我通过 P">
 <meta property="og:type" content="article">
-<meta property="og:title" content="移动 App 功能自动化测试环境搭建">
-<meta property="og:url" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/index.html">
+<meta property="og:title" content="基于 Postman + Newman + Jenkins 的 API 测试">
+<meta property="og:url" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/index.html">
 <meta property="og:site_name" content="良序">
-<meta property="og:description" content="JDK 安装与配置 下载地址  JDK安装: 下一步即可！  环境变量的配置a. 计算机 -&amp;gt; 系统属性 -&amp;gt; 高级系统设置 -&amp;gt; 环境变量 -&amp;gt; 系统变量   b. 新建 JAVA_HOME">
+<meta property="og:description" content="Postman安装略过，直接上手。 新建 CollectionCollection 主要用于将一个模块的接口保存在一起，后续可集中导出执行测试   将一些通用的测试用例写进 Collection 的 Pre-request 和 Test 脚本中，这样可以不用在每个请求中写一遍相应测试用例。因为我们接口进行了加密，我这里就将一些接口解密、返回代码、状态码等写在下面。  捕获 HTTP 请求我通过 P">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/env-variable.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/add-JAVA_HOME.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/update-PATH.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/create-CLASSPATH.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/success-java.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/create-ANT_HOME.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/update-PATH-ANT_HOME.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/create-ANDROID_HOME.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/update-PATH-ANDROID_HOME.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/success-adb.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/ADT-plugin.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/toolbar-icons.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/proxy-server.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/SDK-manager.jpg">
-<meta property="og:updated_time" content="2019-07-24T09:33:25.495Z">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/create-collection.png">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/add-script.png">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/history.png">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/save-collections.png">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/export-collection.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/newman-cli.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/html-reports.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/build.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/report-result.jpg">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/api-detail.png">
+<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/api-failures.png">
+<meta property="og:updated_time" content="2019-07-24T10:55:01.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="移动 App 功能自动化测试环境搭建">
-<meta name="twitter:description" content="JDK 安装与配置 下载地址  JDK安装: 下一步即可！  环境变量的配置a. 计算机 -&amp;gt; 系统属性 -&amp;gt; 高级系统设置 -&amp;gt; 环境变量 -&amp;gt; 系统变量   b. 新建 JAVA_HOME">
-<meta name="twitter:image" content="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/env-variable.jpg">
+<meta name="twitter:title" content="基于 Postman + Newman + Jenkins 的 API 测试">
+<meta name="twitter:description" content="Postman安装略过，直接上手。 新建 CollectionCollection 主要用于将一个模块的接口保存在一起，后续可集中导出执行测试   将一些通用的测试用例写进 Collection 的 Pre-request 和 Test 脚本中，这样可以不用在每个请求中写一遍相应测试用例。因为我们接口进行了加密，我这里就将一些接口解密、返回代码、状态码等写在下面。  捕获 HTTP 请求我通过 P">
+<meta name="twitter:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/create-collection.png">
 
 
 
@@ -134,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/">
+  <link rel="canonical" href="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/">
 
 
 
 
 
-  <title>移动 App 功能自动化测试环境搭建 | 良序</title>
+  <title>基于 Postman + Newman + Jenkins 的 API 测试 | 良序</title>
   
 
 
@@ -277,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://knowing.pub/2019/07/08/mobile-app-automated-test-environment-to-build/">
+    <link itemprop="mainEntityOfPage" href="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -294,7 +291,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">移动 App 功能自动化测试环境搭建</h2>
+          <h2 class="post-title" itemprop="name headline">基于 Postman + Newman + Jenkins 的 API 测试</h2>
         
 
         <div class="post-meta">
@@ -306,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-08T15:47:28+08:00">
-                2019-07-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-05T17:42:29+08:00">
+                2019-07-05
               </time>
             
 
@@ -329,8 +326,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/自动化测试/" itemprop="url" rel="index">
-                    <span itemprop="name">自动化测试</span>
+                  <a href="/categories/接口测试/" itemprop="url" rel="index">
+                    <span itemprop="name">接口测试</span>
                   </a>
                 </span>
 
@@ -366,101 +363,73 @@
       
 
       
-        <h3 id="JDK-安装与配置"><a href="#JDK-安装与配置" class="headerlink" title="JDK 安装与配置"></a>JDK 安装与配置</h3><ol>
-<li><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html" target="_blank" rel="noopener">下载地址</a></p>
-</li>
-<li><p>JDK安装: 下一步即可！</p>
-</li>
-<li><p><strong>环境变量的配置</strong><br>a. 计算机 -&gt; 系统属性 -&gt; 高级系统设置 -&gt; 环境变量 -&gt; 系统变量</p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/env-variable.jpg">
+        <h3 id="Postman"><a href="#Postman" class="headerlink" title="Postman"></a>Postman</h3><p>安装略过，直接上手。</p>
+<h5 id="新建-Collection"><a href="#新建-Collection" class="headerlink" title="新建 Collection"></a>新建 Collection</h5><p><code>Collection</code> 主要用于将一个模块的接口保存在一起，后续可集中导出执行测试</p>
+<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/create-collection.png">
 
-<p>b. 新建 <code>JAVA_HOME</code></p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/add-JAVA_HOME.jpg">
+<p>将一些通用的测试用例写进 Collection 的 <code>Pre-request</code> 和 <code>Test</code> 脚本中，这样可以不用在每个请求中写一遍相应测试用例。因为我们接口进行了加密，我这里就将一些接口解密、返回代码、状态码等写在下面。</p>
+<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/add-script.png">
+<h5 id="捕获-HTTP-请求"><a href="#捕获-HTTP-请求" class="headerlink" title="捕获 HTTP 请求"></a>捕获 HTTP 请求</h5><p>我通过 Postman 代理捕获来自手机端的 HTTP 请求，所捕获的请求都会到左侧的 <code>History</code> 中。</p>
+<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/history.png">
 
-</li>
-</ol>
-<a id="more"></a>
-<p>  c. 修改 <code>PATH</code> 变量，注意别把原本的东西删</p>
-  <img src="/2019/07/08/mobile-app-automated-test-environment-to-build/update-PATH.jpg">
+<h5 id="将接口保存到-Collection"><a href="#将接口保存到-Collection" class="headerlink" title="将接口保存到 Collection"></a>将接口保存到 Collection</h5><p>将 <code>History</code> 中的请求进行整理、编写测试用例，验证测试结果，然后将其保存到新建的 Collection 中。</p>
+<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/save-collections.png">
 
-<p>  d. 新建 <code>CLASSPATH</code></p>
-  <img src="/2019/07/08/mobile-app-automated-test-environment-to-build/create-CLASSPATH.jpg">
+<h5 id="导出-Collection"><a href="#导出-Collection" class="headerlink" title="导出 Collection"></a>导出 Collection</h5><p>当然，也可以使用 Postman 生成的 Collection 链接，在 <code>Collection</code> 上右击，选择 <code>Share Collection</code> ,选择 <code>Get Link</code> 。 </p>
+<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/export-collection.jpg">
 
-<p>  e. 验证：CTRL + R 打开 cmd , 输入 <code>java -version</code>，出现下面这种信息成功</p>
-  <img src="/2019/07/08/mobile-app-automated-test-environment-to-build/success-java.jpg">
-
-<h2 id="Android-环境工具部分配置"><a href="#Android-环境工具部分配置" class="headerlink" title="Android 环境工具部分配置"></a>Android 环境工具部分配置</h2><h3 id="ANT-配置"><a href="#ANT-配置" class="headerlink" title="ANT 配置"></a>ANT 配置</h3><ol>
-<li><p><a href="https://ant.apache.org/bindownload.cgi" target="_blank" rel="noopener">下载地址</a></p>
-</li>
-<li><p><strong>环境变量的配置</strong> (省略步骤 a.)<br>b. 新建 <code>ANT_HOME</code></p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/create-ANT_HOME.jpg">
-
-<p>c. 修改 <code>PATH</code> 变量，添加 <code>%ANT_HOME%\bin</code> 。注意别把原本的东西删</p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/update-PATH-ANT_HOME.jpg">
-
-</li>
-</ol>
-<h3 id="SDK-配置"><a href="#SDK-配置" class="headerlink" title="SDK 配置"></a>SDK 配置</h3><ol>
-<li><p>下载地址网上找一个，我忘了。</p>
-</li>
-<li><p><strong>环境变量的配置</strong> (省略步骤 a.)<br>b. 新建 <code>ANDROID_HOME</code></p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/create-ANDROID_HOME.jpg">
-
-<p>c. 修改 <code>PATH</code> 变量，添加 <code>%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools</code> 。注意别把原本的东西删</p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/update-PATH-ANDROID_HOME.jpg">
-
-<p>d. 验证：CTRL + R 打开 cmd , 输入 <code>adb</code>，出现下面这种信息成功</p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/success-adb.jpg">
-
-
-</li>
-</ol>
-<h3 id="开发工具-eclipse-ADT-SDK"><a href="#开发工具-eclipse-ADT-SDK" class="headerlink" title="开发工具 eclipse + ADT + SDK"></a>开发工具 eclipse + ADT + SDK</h3><ol>
-<li><p><a href="https://www.eclipse.org/downloads/packages/eclipse-android-developers/neonm6" target="_blank" rel="noopener">下载 Eclipse for Android Developers</a> </p>
-</li>
-<li><p><strong>为 Eclipse 安装 ADT 插件</strong> (推荐在线安装，我这里使用的是在线安装)<br>a. 启动 Eclipse，点击 Help 菜单 -&gt; Install New Software… ?，点击弹出对话框中的 Add… 按钮</p>
-<p>b. Name 输入 ADT Plugin ，Location 输入 <a href="http://dl-ssl.google.com/android/eclipse/，点击" target="_blank" rel="noopener">http://dl-ssl.google.com/android/eclipse/，点击</a> OK</p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/ADT-plugin.jpg">
-
-<p>c. 在弹出的对话框选择要安装的工具，然后下一步下一步重启就可以了</p>
-<p>d. 安装好 ADT 插件后，Eclipse 的工具栏会出现一排 Android 的图标</p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/toolbar-icons.jpg">
-</li>
-<li><p><strong>在 SDK Manager 中安装需要的包</strong><br>a. 设置镜像代理，打开 SDK Manager -&gt; Tools ，安装如下设置 （HTTP Proxy server: mirrors.zzu.edu.cn），点击 close</p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/proxy-server.jpg">
-
-<p>b. 打开 Packages -&gt; Reload,就会出现如下这些包</p>
-<img src="/2019/07/08/mobile-app-automated-test-environment-to-build/SDK-manager.jpg">
-
-<p>c. 选择需要安装的包即可</p>
-</li>
-<li><p>安装模拟器 （genymotion）</p>
-</li>
-<li><p>下载安装百度（下载带 VirtualBox 的）</p>
-</li>
-<li><p>添加安卓模拟器，由于安卓镜像在国外，下载非常慢，推荐一个<a href="https://www.jianshu.com/p/ce4b1fede738" target="_blank" rel="noopener">解决方法</a>，顺便推荐一个<a href="http://www.freedownloadmanager.org/download.htm" target="_blank" rel="noopener">下载工具</a></p>
-</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>至此环境搭建结束，记录几个 cmd 命令</p>
-<ol>
-<li><p>where 要查找的应用</p>
-<blockquote>
-<p>这个命令可列出该应用在系统中所存在的位置 比如： where adb.exe </p>
+<p>我这里使用的是导出，在 <code>Collection</code> 上右击，选择 <code>Export</code> 将 Collection 导出，导出的是一个 <code>json</code> 类型的文件，这样就可以使用 Newman 执行测试用例并生成测试报告并集成到 Jenkins 中。</p>
+<h3 id="Newman"><a href="#Newman" class="headerlink" title="Newman"></a>Newman</h3><blockquote>
+<p>Newman 是一个命令行工具，可以用于将我们的接口测试用例在命令行运行并生成测试报告</p>
 </blockquote>
+<p>这里使用 Newman 主要是为了可以集成到 Jenkins ,方便之后的运行测试。</p>
+<h5 id="安装-Newman"><a href="#安装-Newman" class="headerlink" title="安装 Newman"></a>安装 Newman</h5><ul>
+<li>安装 node.js，官网下载，下一步下一步就行了</li>
+<li>使用 node.js 自带的 npm 包管理工具安装 Newman<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g newman</span><br></pre></td></tr></table></figure>
+
 </li>
-<li><p>cls 清屏</p>
+</ul>
+<h5 id="运行导出-Collection-的-json-文件"><a href="#运行导出-Collection-的-json-文件" class="headerlink" title="运行导出 Collection 的 json 文件"></a>运行导出 Collection 的 json 文件</h5><ul>
+<li>运行 Postman 导出的 Collection 的 <code>json</code> 文件，并生成 <code>html</code> 和 <code>junit</code> 类型测试报告</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newman run c:\报事报修接口.json --reporters cli,html,junit  --reporter-junit-export report.xml --reporter-html-export report.html</span><br></pre></td></tr></table></figure>
+
+<h3 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h3><h5 id="安装启动-Jenkins"><a href="#安装启动-Jenkins" class="headerlink" title="安装启动 Jenkins"></a>安装启动 Jenkins</h5><ul>
+<li>安装 tomcat ，官网下载 tomcat 后，解压到本地文件夹下</li>
+<li>下载 Jenkins，选择 .war，下载后存放到 tomcat 安装目录 -&gt; webapps 下</li>
+<li>启动 tomcat ，打开浏览器输入 <code>http://localhost:8080/jenkins</code> ，配置 Jenkins 初始化密码、安装插件、创建用户，然后进入 Jenkins 主页</li>
+</ul>
+<h5 id="Newman-集成配置"><a href="#Newman-集成配置" class="headerlink" title="Newman 集成配置"></a>Newman 集成配置</h5><ul>
+<li>先安装一个 <code>HTML Publisher plugin</code> 插件，用来发布 HTML 报告</li>
+<li>新建任务</li>
+<li>添加构建步骤</li>
+</ul>
+<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/newman-cli.jpg">
+
+<ul>
+<li>添加构建后的操作并保存</li>
+</ul>
+<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/html-reports.jpg">
+
+<ul>
+<li>点击 “立即构建”</li>
+</ul>
+<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/build.jpg">
+
+<ul>
+<li>查看结果<ul>
+<li><strong>总的概览（运行时间、成功失败数量、总的数量等）</strong><img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/report-result.jpg"></li>
+<li><strong>详细的接口信息</strong>    <img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/api-detail.png"></li>
+<li><strong>测试失败的接口信息</strong><img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/api-failures.png">
+
+
 </li>
-<li><p>netstat -ano | findstr “端口”</p>
-<blockquote>
-<p>查看端口被哪个进程占用</p>
-</blockquote>
+</ul>
 </li>
-<li><p>tasklist | findstr “进程”</p>
-<blockquote>
-<p>查看进程名，这个命令配合第一个用</p>
-</blockquote>
-</li>
-</ol>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>可能有 HTML 报告样式加载不出来的情况，见 <code>https://testerhome.com/topics/9476</code></li>
+</ul>
 
       
     </div>
@@ -485,8 +454,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/" rel="next" title="基于 Postman + Newman + Jenkins 的 API 测试">
-                <i class="fa fa-chevron-left"></i> 基于 Postman + Newman + Jenkins 的 API 测试
+              <a href="/2019/07/02/mysql 基础操作/" rel="next" title="Mysql 基础操作">
+                <i class="fa fa-chevron-left"></i> Mysql 基础操作
               </a>
             
           </div>
@@ -495,8 +464,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/12/记一次性能测试/" rel="prev" title="记一次性能测试">
-                记一次性能测试 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/08/mobile-app-automated-test-environment-to-build/" rel="prev" title="移动 App 功能自动化测试环境搭建">
+                移动 App 功能自动化测试环境搭建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -631,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK-安装与配置"><span class="nav-number">1.</span> <span class="nav-text">JDK 安装与配置</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-环境工具部分配置"><span class="nav-number"></span> <span class="nav-text">Android 环境工具部分配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ANT-配置"><span class="nav-number">1.</span> <span class="nav-text">ANT 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SDK-配置"><span class="nav-number">2.</span> <span class="nav-text">SDK 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发工具-eclipse-ADT-SDK"><span class="nav-number">3.</span> <span class="nav-text">开发工具 eclipse + ADT + SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Postman"><span class="nav-number">1.</span> <span class="nav-text">Postman</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#新建-Collection"><span class="nav-number">1.0.1.</span> <span class="nav-text">新建 Collection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#捕获-HTTP-请求"><span class="nav-number">1.0.2.</span> <span class="nav-text">捕获 HTTP 请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将接口保存到-Collection"><span class="nav-number">1.0.3.</span> <span class="nav-text">将接口保存到 Collection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#导出-Collection"><span class="nav-number">1.0.4.</span> <span class="nav-text">导出 Collection</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#Newman"><span class="nav-number">2.</span> <span class="nav-text">Newman</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-Newman"><span class="nav-number">2.0.1.</span> <span class="nav-text">安装 Newman</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#运行导出-Collection-的-json-文件"><span class="nav-number">2.0.2.</span> <span class="nav-text">运行导出 Collection 的 json 文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins"><span class="nav-number">3.</span> <span class="nav-text">Jenkins</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装启动-Jenkins"><span class="nav-number">3.0.1.</span> <span class="nav-text">安装启动 Jenkins</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Newman-集成配置"><span class="nav-number">3.0.2.</span> <span class="nav-text">Newman 集成配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></div>
             
 
           </div>
