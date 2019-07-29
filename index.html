@@ -355,7 +355,7 @@
 <p>本文是基于在工作中开发一键升级工具，使用 fbs 进行打包为 Windows 可执行文件时，遇到的一些问题，将其记录下来。</p>
 </blockquote>
 <h3 id="打包时遇到的常见错误"><a href="#打包时遇到的常见错误" class="headerlink" title="打包时遇到的常见错误"></a>打包时遇到的常见错误</h3><blockquote>
-<p>fbs目前针对的是Python 3.5 或 3.6</p>
+<p>fbs目前只支持 Python 3.5 或 3.6</p>
 </blockquote>
 <ol>
 <li>打包后，找不到引入的配置文件，通过冻结路径手段解决<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">config_name = <span class="string">'config/config.yaml'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># determine if application is a script file or frozen exe</span></span><br><span class="line"><span class="keyword">if</span> getattr(sys, <span class="string">'frozen'</span>, <span class="literal">False</span>):</span><br><span class="line">    application_path = os.path.dirname(sys.executable)</span><br><span class="line"><span class="keyword">elif</span> __file__:</span><br><span class="line">    application_path = os.path.dirname(__file__)</span><br><span class="line"></span><br><span class="line">config_path = os.path.join(application_path, config_name)</span><br></pre></td></tr></table></figure>
