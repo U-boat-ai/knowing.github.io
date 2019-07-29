@@ -79,29 +79,17 @@
 
 
 
-<meta name="description" content="Postman安装略过，直接上手。 新建 CollectionCollection 主要用于将一个模块的接口保存在一起，后续可集中导出执行测试   将一些通用的测试用例写进 Collection 的 Pre-request 和 Test 脚本中，这样可以不用在每个请求中写一遍相应测试用例。因为我们接口进行了加密，我这里就将一些接口解密、返回代码、状态码等写在下面。">
+<meta name="description" content="本文是基于在工作中开发一键升级工具，使用 fbs 进行打包为 Windows 可执行文件时，遇到的一些问题，将其记录下来。  打包时遇到的常见错误 fbs目前针对的是Python 3.5 或 3.6   打包后，找不到引入的配置文件，通过冻结路径手段解决123456789config_name = &apos;config/config.yaml&apos;# determine if application is">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于 Postman + Newman + Jenkins 的 API 测试">
-<meta property="og:url" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/index.html">
+<meta property="og:title" content="fbs 打包 PyQt5 小应用">
+<meta property="og:url" content="http://knowing.pub/2019/07/15/packages-as-executable-by-fbs/index.html">
 <meta property="og:site_name" content="良序">
-<meta property="og:description" content="Postman安装略过，直接上手。 新建 CollectionCollection 主要用于将一个模块的接口保存在一起，后续可集中导出执行测试   将一些通用的测试用例写进 Collection 的 Pre-request 和 Test 脚本中，这样可以不用在每个请求中写一遍相应测试用例。因为我们接口进行了加密，我这里就将一些接口解密、返回代码、状态码等写在下面。">
+<meta property="og:description" content="本文是基于在工作中开发一键升级工具，使用 fbs 进行打包为 Windows 可执行文件时，遇到的一些问题，将其记录下来。  打包时遇到的常见错误 fbs目前针对的是Python 3.5 或 3.6   打包后，找不到引入的配置文件，通过冻结路径手段解决123456789config_name = &apos;config/config.yaml&apos;# determine if application is">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/create-collection.png">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/add-script.png">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/history.png">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/save-collections.png">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/export-collection.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/newman-cli.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/html-reports.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/build.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/report-result.jpg">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/api-detail.png">
-<meta property="og:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/api-failures.png">
-<meta property="og:updated_time" content="2019-07-25T00:34:47.012Z">
+<meta property="og:updated_time" content="2019-07-29T08:12:46.234Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于 Postman + Newman + Jenkins 的 API 测试">
-<meta name="twitter:description" content="Postman安装略过，直接上手。 新建 CollectionCollection 主要用于将一个模块的接口保存在一起，后续可集中导出执行测试   将一些通用的测试用例写进 Collection 的 Pre-request 和 Test 脚本中，这样可以不用在每个请求中写一遍相应测试用例。因为我们接口进行了加密，我这里就将一些接口解密、返回代码、状态码等写在下面。">
-<meta name="twitter:image" content="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/create-collection.png">
+<meta name="twitter:title" content="fbs 打包 PyQt5 小应用">
+<meta name="twitter:description" content="本文是基于在工作中开发一键升级工具，使用 fbs 进行打包为 Windows 可执行文件时，遇到的一些问题，将其记录下来。  打包时遇到的常见错误 fbs目前针对的是Python 3.5 或 3.6   打包后，找不到引入的配置文件，通过冻结路径手段解决123456789config_name = &apos;config/config.yaml&apos;# determine if application is">
 
 
 
@@ -131,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/">
+  <link rel="canonical" href="http://knowing.pub/2019/07/15/packages-as-executable-by-fbs/">
 
 
 
 
 
-  <title>基于 Postman + Newman + Jenkins 的 API 测试 | 良序</title>
+  <title>fbs 打包 PyQt5 小应用 | 良序</title>
   
 
 
@@ -274,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://knowing.pub/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/">
+    <link itemprop="mainEntityOfPage" href="http://knowing.pub/2019/07/15/packages-as-executable-by-fbs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -291,7 +279,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">基于 Postman + Newman + Jenkins 的 API 测试</h2>
+          <h2 class="post-title" itemprop="name headline">fbs 打包 PyQt5 小应用</h2>
         
 
         <div class="post-meta">
@@ -303,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-05T17:42:29+08:00">
-                2019-07-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-15T16:05:33+08:00">
+                2019-07-15
               </time>
             
 
@@ -326,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/接口测试/" itemprop="url" rel="index">
-                    <span itemprop="name">接口测试</span>
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
                   </a>
                 </span>
 
@@ -363,74 +351,69 @@
       
 
       
-        <h3 id="Postman"><a href="#Postman" class="headerlink" title="Postman"></a>Postman</h3><p>安装略过，直接上手。</p>
-<h5 id="新建-Collection"><a href="#新建-Collection" class="headerlink" title="新建 Collection"></a>新建 Collection</h5><p><code>Collection</code> 主要用于将一个模块的接口保存在一起，后续可集中导出执行测试</p>
-<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/create-collection.png">
-
-<p>将一些通用的测试用例写进 Collection 的 <code>Pre-request</code> 和 <code>Test</code> 脚本中，这样可以不用在每个请求中写一遍相应测试用例。因为我们接口进行了加密，我这里就将一些接口解密、返回代码、状态码等写在下面。</p>
-<a id="more"></a>
-<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/add-script.png">
-<h5 id="捕获-HTTP-请求"><a href="#捕获-HTTP-请求" class="headerlink" title="捕获 HTTP 请求"></a>捕获 HTTP 请求</h5><p>我通过 Postman 代理捕获来自手机端的 HTTP 请求，所捕获的请求都会到左侧的 <code>History</code> 中。</p>
-<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/history.png">
-
-<h5 id="将接口保存到-Collection"><a href="#将接口保存到-Collection" class="headerlink" title="将接口保存到 Collection"></a>将接口保存到 Collection</h5><p>将 <code>History</code> 中的请求进行整理、编写测试用例，验证测试结果，然后将其保存到新建的 Collection 中。</p>
-<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/save-collections.png">
-
-<h5 id="导出-Collection"><a href="#导出-Collection" class="headerlink" title="导出 Collection"></a>导出 Collection</h5><p>当然，也可以使用 Postman 生成的 Collection 链接，在 <code>Collection</code> 上右击，选择 <code>Share Collection</code> ,选择 <code>Get Link</code> 。 </p>
-<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/export-collection.jpg">
-
-<p>我这里使用的是导出，在 <code>Collection</code> 上右击，选择 <code>Export</code> 将 Collection 导出，导出的是一个 <code>json</code> 类型的文件，这样就可以使用 Newman 执行测试用例并生成测试报告并集成到 Jenkins 中。</p>
-<h3 id="Newman"><a href="#Newman" class="headerlink" title="Newman"></a>Newman</h3><blockquote>
-<p>Newman 是一个命令行工具，可以用于将我们的接口测试用例在命令行运行并生成测试报告</p>
+        <blockquote>
+<p>本文是基于在工作中开发一键升级工具，使用 fbs 进行打包为 Windows 可执行文件时，遇到的一些问题，将其记录下来。</p>
 </blockquote>
-<p>这里使用 Newman 主要是为了可以集成到 Jenkins ,方便之后的运行测试。</p>
-<h5 id="安装-Newman"><a href="#安装-Newman" class="headerlink" title="安装 Newman"></a>安装 Newman</h5><ul>
-<li>安装 node.js，官网下载，下一步下一步就行了</li>
-<li>使用 node.js 自带的 npm 包管理工具安装 Newman<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g newman</span><br></pre></td></tr></table></figure>
+<h3 id="打包时遇到的常见错误"><a href="#打包时遇到的常见错误" class="headerlink" title="打包时遇到的常见错误"></a>打包时遇到的常见错误</h3><blockquote>
+<p>fbs目前针对的是Python 3.5 或 3.6</p>
+</blockquote>
+<ol>
+<li>打包后，找不到引入的配置文件，通过冻结路径手段解决<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">config_name = <span class="string">'config/config.yaml'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># determine if application is a script file or frozen exe</span></span><br><span class="line"><span class="keyword">if</span> getattr(sys, <span class="string">'frozen'</span>, <span class="literal">False</span>):</span><br><span class="line">    application_path = os.path.dirname(sys.executable)</span><br><span class="line"><span class="keyword">elif</span> __file__:</span><br><span class="line">    application_path = os.path.dirname(__file__)</span><br><span class="line"></span><br><span class="line">config_path = os.path.join(application_path, config_name)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<a id="more"></a>
+<ol start="2">
+<li><p>脚本中使用到 unrar 模块，它依赖一个 RAR 插件，需安装 <code>UnRARDLL.exe</code>，并配置环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UNRAR_LIB_PATH = C:\Program Files (x86)\UnrarDLL\x64\UnRAR.dll</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>需要在界面入口文件中添加 <code>ApplicationContext</code> 类，不然会报 <code>fbs_pyinstaller_hook-</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fbs_runtime.application_context.PyQt5 <span class="keyword">import</span> ApplicationContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    appctxt = ApplicationContext()</span><br><span class="line">        app = QApplication(sys.argv)</span><br><span class="line">        dg = Dialog_ui()</span><br><span class="line">        dg.show()</span><br><span class="line">        exit_code = appctxt.app.exec_()</span><br><span class="line">        sys.exit(exit_code)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果打包后运行报 <code>Failed to execute script main</code></p>
+<ul>
+<li>通过 <code>fbs freeze --debug</code> 打包文件</li>
+<li>打开 cmd.exe 窗口，拖至窗口进行运行，查看报错信息，因为直接运行会一闪而过</li>
+</ul>
+</li>
+<li><p>批处理配置环境变量，报错：默认选项不允许超过’2’次，因为文件夹包含空格原因</p>
+</li>
+</ol>
+<blockquote>
+<p>参考资料 <a href="https://build-system.fman.io/troubleshooting，http://landcareweb.com/questions/9125/que-ding-pyinstallersheng-cheng-de-python-exezhong-de-ying-yong-cheng-xu-lu-jing" target="_blank" rel="noopener">https://build-system.fman.io/troubleshooting，http://landcareweb.com/questions/9125/que-ding-pyinstallersheng-cheng-de-python-exezhong-de-ying-yong-cheng-xu-lu-jing</a>, <a href="https://blog.csdn.net/ysy950803/article/details/52939708" target="_blank" rel="noopener">https://blog.csdn.net/ysy950803/article/details/52939708</a></p>
+</blockquote>
+<h3 id="fbs-使用小教程"><a href="#fbs-使用小教程" class="headerlink" title="fbs 使用小教程"></a>fbs 使用小教程</h3><ul>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install fbs</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个应用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fbs startproject</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h5 id="运行导出-Collection-的-json-文件"><a href="#运行导出-Collection-的-json-文件" class="headerlink" title="运行导出 Collection 的 json 文件"></a>运行导出 Collection 的 json 文件</h5><ul>
-<li>运行 Postman 导出的 Collection 的 <code>json</code> 文件，并生成 <code>html</code> 和 <code>junit</code> 类型测试报告</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newman run c:\报事报修接口.json --reporters cli,html,junit  --reporter-junit-export report.xml --reporter-html-export report.html</span><br></pre></td></tr></table></figure>
-
-<h3 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h3><h5 id="安装启动-Jenkins"><a href="#安装启动-Jenkins" class="headerlink" title="安装启动 Jenkins"></a>安装启动 Jenkins</h5><ul>
-<li>安装 tomcat ，官网下载 tomcat 后，解压到本地文件夹下</li>
-<li>下载 Jenkins，选择 .war，下载后存放到 tomcat 安装目录 -&gt; webapps 下</li>
-<li>启动 tomcat ，打开浏览器输入 <code>http://localhost:8080/jenkins</code> ，配置 Jenkins 初始化密码、安装插件、创建用户，然后进入 Jenkins 主页</li>
-</ul>
-<h5 id="Newman-集成配置"><a href="#Newman-集成配置" class="headerlink" title="Newman 集成配置"></a>Newman 集成配置</h5><ul>
-<li>先安装一个 <code>HTML Publisher plugin</code> 插件，用来发布 HTML 报告</li>
-<li>新建任务</li>
-<li>添加构建步骤</li>
-</ul>
-<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/newman-cli.jpg">
-
+<blockquote>
+<p>源代码在 src/main/python/main.py</p>
+</blockquote>
 <ul>
-<li>添加构建后的操作并保存</li>
-</ul>
-<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/html-reports.jpg">
-
-<ul>
-<li>点击 “立即构建”</li>
-</ul>
-<img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/build.jpg">
-
-<ul>
-<li>查看结果<ul>
-<li><strong>总的概览（运行时间、成功失败数量、总的数量等）</strong><img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/report-result.jpg"></li>
-<li><strong>详细的接口信息</strong>    <img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/api-detail.png"></li>
-<li><strong>测试失败的接口信息</strong><img src="/2019/07/05/API-test-based-on-Postman-Newman-Jenkins/api-failures.png">
-
+<li><p>运行应用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fbs run</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打包，如果要调试，后面加 –debug</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fbs freeze</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
+<blockquote>
+<p>二进制文件在 target/MyApp/ 文件中，可执行 MyApp.exe</p>
+</blockquote>
+<ul>
+<li>清除打包生成的文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fbs clean</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
-<li>可能有 HTML 报告样式加载不出来的情况，见 <code>https://testerhome.com/topics/9476</code></li>
-</ul>
+<blockquote>
+<p>参考资料：<a href="https://build-system.fman.io/pyqt5-tutorial" target="_blank" rel="noopener">https://build-system.fman.io/pyqt5-tutorial</a>, <a href="https://rongweihe.github.io/2018/11/02/PyQt5-%E7%AE%80%E6%98%8E%E4%B8%AD%E6%96%87%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">https://rongweihe.github.io/2018/11/02/PyQt5-%E7%AE%80%E6%98%8E%E4%B8%AD%E6%96%87%E6%95%99%E7%A8%8B/</a></p>
+</blockquote>
 
       
     </div>
@@ -455,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/02/mysql 基础操作/" rel="next" title="Mysql 基础操作">
-                <i class="fa fa-chevron-left"></i> Mysql 基础操作
+              <a href="/2019/07/12/记一次性能测试/" rel="next" title="记一次性能测试">
+                <i class="fa fa-chevron-left"></i> 记一次性能测试
               </a>
             
           </div>
@@ -464,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/06/python-oop/" rel="prev" title="解惑 Python 面向对象">
-                解惑 Python 面向对象 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Postman"><span class="nav-number">1.</span> <span class="nav-text">Postman</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#新建-Collection"><span class="nav-number">1.0.1.</span> <span class="nav-text">新建 Collection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#捕获-HTTP-请求"><span class="nav-number">1.0.2.</span> <span class="nav-text">捕获 HTTP 请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将接口保存到-Collection"><span class="nav-number">1.0.3.</span> <span class="nav-text">将接口保存到 Collection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#导出-Collection"><span class="nav-number">1.0.4.</span> <span class="nav-text">导出 Collection</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#Newman"><span class="nav-number">2.</span> <span class="nav-text">Newman</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-Newman"><span class="nav-number">2.0.1.</span> <span class="nav-text">安装 Newman</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#运行导出-Collection-的-json-文件"><span class="nav-number">2.0.2.</span> <span class="nav-text">运行导出 Collection 的 json 文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins"><span class="nav-number">3.</span> <span class="nav-text">Jenkins</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装启动-Jenkins"><span class="nav-number">3.0.1.</span> <span class="nav-text">安装启动 Jenkins</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Newman-集成配置"><span class="nav-number">3.0.2.</span> <span class="nav-text">Newman 集成配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打包时遇到的常见错误"><span class="nav-number">1.</span> <span class="nav-text">打包时遇到的常见错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fbs-使用小教程"><span class="nav-number">2.</span> <span class="nav-text">fbs 使用小教程</span></a></li></ol></div>
             
 
           </div>

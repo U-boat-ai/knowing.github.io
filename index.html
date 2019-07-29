@@ -259,6 +259,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://knowing.pub/2019/07/15/packages-as-executable-by-fbs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="良序">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/15/packages-as-executable-by-fbs/" itemprop="url">fbs 打包 PyQt5 小应用</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-15T16:05:33+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>本文是基于在工作中开发一键升级工具，使用 fbs 进行打包为 Windows 可执行文件时，遇到的一些问题，将其记录下来。</p>
+</blockquote>
+<h3 id="打包时遇到的常见错误"><a href="#打包时遇到的常见错误" class="headerlink" title="打包时遇到的常见错误"></a>打包时遇到的常见错误</h3><blockquote>
+<p>fbs目前针对的是Python 3.5 或 3.6</p>
+</blockquote>
+<ol>
+<li>打包后，找不到引入的配置文件，通过冻结路径手段解决<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">config_name = <span class="string">'config/config.yaml'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># determine if application is a script file or frozen exe</span></span><br><span class="line"><span class="keyword">if</span> getattr(sys, <span class="string">'frozen'</span>, <span class="literal">False</span>):</span><br><span class="line">    application_path = os.path.dirname(sys.executable)</span><br><span class="line"><span class="keyword">elif</span> __file__:</span><br><span class="line">    application_path = os.path.dirname(__file__)</span><br><span class="line"></span><br><span class="line">config_path = os.path.join(application_path, config_name)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/15/packages-as-executable-by-fbs/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://knowing.pub/2019/07/12/记一次性能测试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1040,7 +1196,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1051,7 +1207,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
